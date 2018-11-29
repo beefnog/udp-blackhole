@@ -6,15 +6,21 @@
 #
 # I assert no license; use this code as you see fit.
 
+import argparse
 import socket
 from datetime import datetime as dt
 
-# tunables
-bind_host = "0.0.0.0" # 0.0.0.0 -> ANY IPv4
-bind_port = 54321
+parser = argparse.ArgumentParser(description = 'This script will listen for UDP datagrams, dump them to stdout.')
+parser.add_argument('--addr', required = True, help = 'IPv4 address to bind. Default is 0.0.0.0 - IPv4 any')
+parser.add_argument('--port', required = True, help = 'UDP port to bind listen on.')
+a = parser.parse_args()
+
+# runtime arguments
+h, p = a.addr, int(a.port)
+
 
 s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-s.bind((bind_host, bind_port))
+s.bind((h, p))
 
 count = 0
 while True:

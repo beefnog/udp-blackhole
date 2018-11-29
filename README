@@ -1,0 +1,5 @@
+This is a simple python script for dumping UDP datagrams to stdout / console. It takes two arguments.
+
+--addr : IPv4 address to bind to, or 0.0.0.0 for any
+--port : UDP port to listen on. Anything <= 1024 will require elevated privileges.
+
