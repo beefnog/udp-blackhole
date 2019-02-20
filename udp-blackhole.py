@@ -10,9 +10,9 @@ import argparse
 import socket
 from datetime import datetime as dt
 
-parser = argparse.ArgumentParser(description = 'This script will listen for UDP datagrams, dump them to stdout.')
-parser.add_argument('--addr', required = True, help = 'IPv4 address to bind. Default is 0.0.0.0 - IPv4 any')
-parser.add_argument('--port', required = True, help = 'UDP port to bind listen on.')
+parser = argparse.ArgumentParser(description = 'This script will listen for UDP datagrams, and dump them to stdout.')
+parser.add_argument('--addr', required = True, help = 'IPv4 address to bind. Note: 0.0.0.0 = IPv4 any')
+parser.add_argument('--port', required = True, help = 'UDP port to listen on.')
 a = parser.parse_args()
 
 # runtime arguments
